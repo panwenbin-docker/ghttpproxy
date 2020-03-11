@@ -15,3 +15,6 @@ COPY --from=builder /builder/proxy /app/ghttpproxy
 WORKDIR /app
 
 CMD ["./ghttpproxy"]
+
+EXPOSE 80
+EXPOSE 443
