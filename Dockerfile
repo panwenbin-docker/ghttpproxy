@@ -5,16 +5,16 @@ ENV GORPOXY ${GOPROXY}
 
 WORKDIR /builder
 
-RUN git clone https://github.com/panwenbin/ghttpproxy.git /builder \
+RUN git clone https://github.com/panwenbin/greverseproxy.git /builder \
   && go build proxy.go
 
 FROM golang:1.14
 
-COPY --from=builder /builder/proxy /app/ghttpproxy
+COPY --from=builder /builder/proxy /app/greverseproxy
 
 WORKDIR /app
 
-CMD ["./ghttpproxy"]
+CMD ["./greverseproxy"]
 
 EXPOSE 80
 EXPOSE 443
