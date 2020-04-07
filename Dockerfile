@@ -8,7 +8,7 @@ WORKDIR /builder
 RUN git clone https://github.com/panwenbin/greverseproxy.git /builder \
   && go build proxy.go
 
-FROM golang:1.14
+FROM alpine:latest
 
 COPY --from=builder /builder/proxy /app/greverseproxy
 
